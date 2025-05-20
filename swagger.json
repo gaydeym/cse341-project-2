@@ -5,10 +5,10 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "cse341-project-2-w7d5.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/recipes/": {
