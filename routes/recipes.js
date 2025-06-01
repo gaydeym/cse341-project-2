@@ -14,7 +14,7 @@ router.get(
   /* 
     #swagger.tags = ['Recipes']
   */
-  recipesController.fetchRecipeById
+  recipesController.validateId, recipesController.fetchRecipeById
 );
 
 router.post(
@@ -67,6 +67,22 @@ router.post(
     }
   */
   recipesController.addRecipe
+);
+
+router.put(
+  '/:id',
+  /* 
+    #swagger.tags = ['Recipes']
+  */
+  recipesController.validateId, recipesController.updateRecipe
+);
+
+router.delete(
+  '/:id',
+  /* 
+    #swagger.tags = ['Recipes']
+  */
+  recipesController.validateId, recipesController.deleteRecipe
 );
 
 module.exports = router;

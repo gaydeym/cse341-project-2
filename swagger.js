@@ -2,13 +2,13 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Recipes API',
+    title: 'Recipes API'
     // description: 'Description'
   },
   // host: 'localhost:3000',
   // schemes: ['http'],
   host: 'cse341-project-2-w7d5.onrender.com',
-  schemes: ['https'],
+  schemes: ['https']
   // tags: [
   //   {
   //     name: 'API Endpoints'
