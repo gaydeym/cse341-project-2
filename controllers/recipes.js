@@ -12,10 +12,10 @@ function validateId(req, res, next) {
 // Add a new recipe
 async function addRecipe(req, res) {
   try {
-    if (!req.body.imgUrl || !req.body.name) {
-      return res.status(400).json({ error: 'imgUrl and name are required fields' });
+    if (!req.body.name) {
+      return res.status(400).json({ error: 'Name cannot be empty' });
     }
-    
+
     const newRecipe = new RecipeModel(req.body);
     const saved = await newRecipe.save();
     res.status(201).json(saved);
@@ -106,7 +106,7 @@ async function deleteRecipe(req, res) {
   try {
     const { id } = req.params;
     const result = await RecipeModel.deleteOne({ _id: id });
-    
+
     if (result.deletedCount === 0) {
       return res.status(404).json({ message: 'Recipe not found.' });
     }
@@ -119,4 +119,11 @@ async function deleteRecipe(req, res) {
   }
 }
 
-module.exports = { addRecipe, fetchRecipes, fetchRecipeById, updateRecipe, deleteRecipe, validateId };
+module.exports = {
+  addRecipe,
+  fetchRecipes,
+  fetchRecipeById,
+  updateRecipe,
+  deleteRecipe,
+  validateId
+};
