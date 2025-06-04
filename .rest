@@ -95,6 +95,7 @@ DELETE http://localhost:3000/recipes/683b9ac954ca55eac3baa4c4
 
 
 // RENDER
+###
 GET cse341-project-2-w7d5.onrender.com/recipes
 ###
 GET cse341-project-2-w7d5.onrender.com/recipes/682cc754f8ad904ce0a9a27b
@@ -145,7 +146,7 @@ Content-Type: application/json
 ###
 GET cse341-project-2-w7d5.onrender.com/api-docs
 ###
-PUT http://localhost:3000/recipes/683b9ac954ca55eac3baa4c4
+PUT cse341-project-2-w7d5.onrender.com/recipes/683b9ac954ca55eac3baa4c4
 Content-Type: application/json
 
 {
@@ -187,4 +188,4 @@ Content-Type: application/json
     }
 }
 ###
-DELETE http://localhost:3000/recipes/683b9ac954ca55eac3baa4c4
+DELETE cse341-project-2-w7d5.onrender.com/recipes/683b9ac954ca55eac3baa4c4
