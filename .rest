@@ -92,6 +92,8 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:3000/recipes/683b9ac954ca55eac3baa4c4
+###
+GET http://localhost:3000/authors
 
 
 // RENDER
@@ -189,3 +191,5 @@ Content-Type: application/json
 }
 ###
 DELETE cse341-project-2-w7d5.onrender.com/recipes/683b9ac954ca55eac3baa4c4
+###
+GET cse341-project-2-w7d5.onrender.com/authors
