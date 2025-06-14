@@ -300,13 +300,30 @@
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": ""
+                },
+                "companyName": {
+                  "type": "string",
+                  "example": ""
+                },
+                "description": {
+                  "type": "string",
+                  "example": ""
+                },
+                "photo": {
+                  "type": "string",
+                  "example": ""
                 }
-              }
+              },
+              "required": [
+                "name"
+              ]
             }
           }
         ],
@@ -369,16 +386,23 @@
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "example@example.com"
                 },
-                "password": {
-                  "example": "any"
+                "name": {
+                  "type": "string",
+                  "example": "Password_123456"
                 }
-              }
+              },
+              "required": [
+                "email",
+                "name"
+              ]
             }
           }
         ],
@@ -408,16 +432,23 @@
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "email@example.com"
                 },
-                "password": {
-                  "example": "any"
+                "name": {
+                  "type": "string",
+                  "example": "Password_123456"
                 }
-              }
+              },
+              "required": [
+                "email",
+                "name"
+              ]
             }
           }
         ],

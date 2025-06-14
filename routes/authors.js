@@ -15,6 +15,16 @@ router.post(
   '/',
   /* 
     #swagger.tags = ['Authors']
+    #swagger.parameters['body'] = {
+      in: 'body',
+      required: true,
+      schema: {
+        $name: '',
+        companyName: '',
+        description: '',
+        photo: ''
+      }
+    }
   */
   verifyToken,
   authorsController.addAuthor

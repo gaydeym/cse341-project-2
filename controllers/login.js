@@ -33,16 +33,16 @@ async function loginUser(req, res) {
 
     const token = createToken(user._id);
     res
-    .cookie('jwt', token, {
+      .cookie('jwt', token, {
         httpOnly: true,
         maxAge: 15 * 60 * 1000, // min*sec*mill 15min
         secure: isProduction
-    })
-    .status(200)
-    .json({
-      _id: user._id,
-      email: user.email
-    });
+      })
+      .status(200)
+      .json({
+        _id: user._id,
+        email: user.email
+      });
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ error: error.message || 'Internal server error during login.' });
