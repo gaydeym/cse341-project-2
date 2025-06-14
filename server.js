@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const { mongoose, url } = require('./models');
 
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use('/', require('./routes'));
 
 app.use((req, res) => {

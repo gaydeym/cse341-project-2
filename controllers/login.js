@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { user: UserModel } = require('../models');
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Create JSON Web Token
 function createToken(_id) {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
@@ -29,17 +31,17 @@ async function loginUser(req, res) {
       return res.status(401).json({ error: 'Incorrect email or password.' });
     }
 
-    // Respond with user info
-    // const userResponse = {
-    //   _id: user._id,
-    //   email: user.email
-    // };
-    // res.status(200).json(userResponse);
     const token = createToken(user._id);
-    res.status(200).json({
+    res
+    .cookie('jwt', token, {
+        httpOnly: true,
+        maxAge: 15 * 60 * 1000, // min*sec*mill 15min
+        secure: isProduction
+    })
+    .status(200)
+    .json({
       _id: user._id,
-      email: user.email,
-      token
+      email: user.email
     });
   } catch (error) {
     console.error('Error during login:', error);

@@ -1,4 +1,7 @@
 // LOCAL HOST
+GET http://localhost:3000/api-docs
+
+// RECIPES
 GET http://localhost:3000/recipes
 ###
 GET http://localhost:3000/recipes/682cc754f8ad904ce0a9a27b
@@ -47,8 +50,6 @@ Content-Type: application/json
     }
 }
 ###
-GET http://localhost:3000/api-docs
-###
 PUT http://localhost:3000/recipes/683b9ac954ca55eac3baa4c4
 Content-Type: application/json
 
@@ -92,11 +93,48 @@ Content-Type: application/json
 }
 ###
 DELETE http://localhost:3000/recipes/683b9ac954ca55eac3baa4c4
+
+// AUTHORS
 ###
 GET http://localhost:3000/authors
+###
+PUT http://localhost:3000/authors
+content-type: application/json
+
+{
+  "name": "Miguel Gaydey",
+  "companyName": "BYU",
+  "description": "Miguel is the best student that BYU has.",
+  "photo": ""
+}
+###
+DELETE http://localhost:3000/authors/684d99684b30bff750185491
+
+// MANAGEMENT
+###
+PUT http://localhost:3000/signup
+content-type: application/json
+
+{
+  "email": "email@example2.com",
+  "password": "Password_123456"
+}
+###
+PUT http://localhost:3000/login
+content-type: application/json
+
+{
+  "email": "email@example.com",
+  "password": "Password_123456"
+}
+
 
 
 // RENDER
+###
+GET cse341-project-2-w7d5.onrender.com/api-docs
+
+// RECIPES
 ###
 GET cse341-project-2-w7d5.onrender.com/recipes
 ###
@@ -146,8 +184,6 @@ Content-Type: application/json
     }
 }
 ###
-GET cse341-project-2-w7d5.onrender.com/api-docs
-###
 PUT cse341-project-2-w7d5.onrender.com/recipes/683b9ac954ca55eac3baa4c4
 Content-Type: application/json
 
@@ -191,5 +227,37 @@ Content-Type: application/json
 }
 ###
 DELETE cse341-project-2-w7d5.onrender.com/recipes/683b9ac954ca55eac3baa4c4
+
+// AUTHORS
 ###
 GET cse341-project-2-w7d5.onrender.com/authors
+###
+PUT cse341-project-2-w7d5.onrender.com/authors
+content-type: application/json
+
+{
+  "name": "Miguel Gaydey",
+  "companyName": "BYU",
+  "description": "Miguel is the best student that BYU has.",
+  "photo": ""
+}
+###
+DELETE cse341-project-2-w7d5.onrender.com/authors/684d99684b30bff750185491
+
+// MANAGEMENT
+###
+PUT cse341-project-2-w7d5.onrender.com/signup
+content-type: application/json
+
+{
+  "email": "email@example2.com",
+  "password": "Password_123456"
+}
+###
+PUT cse341-project-2-w7d5.onrender.com/login
+content-type: application/json
+
+{
+  "email": "email@example.com",
+  "password": "Password_123456"
+}

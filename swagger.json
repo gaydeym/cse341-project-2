@@ -5,17 +5,24 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "cse341-project-2-w7d5.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/recipes/": {
       "get": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -23,7 +30,9 @@
         }
       },
       "post": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "Add a new recipe",
         "parameters": [
           {
@@ -69,7 +78,11 @@
                 },
                 "ingredients": {
                   "type": "array",
-                  "example": ["400 g dulce de leche", "350 ml whole milk", "200 ml heavy cream"],
+                  "example": [
+                    "400 g dulce de leche",
+                    "350 ml whole milk",
+                    "200 ml heavy cream"
+                  ],
                   "items": {
                     "type": "string"
                   }
@@ -130,7 +143,10 @@
                   }
                 }
               },
-              "required": ["imgUrl", "name"]
+              "required": [
+                "imgUrl",
+                "name"
+              ]
             }
           }
         ],
@@ -141,6 +157,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -149,7 +168,9 @@
     },
     "/recipes/{id}": {
       "get": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -166,6 +187,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -175,7 +199,9 @@
         }
       },
       "put": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -204,6 +230,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -213,7 +242,9 @@
         }
       },
       "delete": {
-        "tags": ["Recipes"],
+        "tags": [
+          "Recipes"
+        ],
         "description": "",
         "parameters": [
           {
@@ -229,6 +260,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -241,11 +275,16 @@
     },
     "/authors/": {
       "get": {
-        "tags": ["Authors"],
+        "tags": [
+          "Authors"
+        ],
         "description": "",
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -253,7 +292,9 @@
         }
       },
       "post": {
-        "tags": ["Authors"],
+        "tags": [
+          "Authors"
+        ],
         "description": "",
         "parameters": [
           {
@@ -276,19 +317,24 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/authors/{_id}": {
+    "/authors/{id}": {
       "delete": {
-        "tags": ["Authors"],
+        "tags": [
+          "Authors"
+        ],
         "description": "",
         "parameters": [
           {
-            "name": "_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -301,6 +347,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -312,7 +361,9 @@
     },
     "/signup/": {
       "post": {
-        "tags": ["Management System"],
+        "tags": [
+          "Management System"
+        ],
         "description": "",
         "parameters": [
           {
@@ -349,7 +400,9 @@
     },
     "/login/": {
       "post": {
-        "tags": ["Management System"],
+        "tags": [
+          "Management System"
+        ],
         "description": "",
         "parameters": [
           {
@@ -369,9 +422,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
           },
