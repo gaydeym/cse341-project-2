@@ -9,4 +9,21 @@ router.get(
   authorsController.fetchAuthors
 );
 
+router.post(
+  '/',
+  /* 
+    #swagger.tags = ['Authors']
+  */
+  authorsController.addAuthor
+);
+
+router.delete(
+  '/:_id',
+  /* 
+    #swagger.tags = ['Authors']
+  */
+  authorsController.validateId,
+  authorsController.deleteAuthor
+);
+
 module.exports = router;

@@ -1,5 +1,11 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { user: UserModel } = require('../models');
+
+// Create JSON Web Token
+function createToken(_id) {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
+}
 
 // Login handler
 async function loginUser(req, res) {
@@ -24,11 +30,17 @@ async function loginUser(req, res) {
     }
 
     // Respond with user info
-    const userResponse = {
+    // const userResponse = {
+    //   _id: user._id,
+    //   email: user.email
+    // };
+    // res.status(200).json(userResponse);
+    const token = createToken(user._id);
+    res.status(200).json({
       _id: user._id,
-      email: user.email
-    };
-    res.status(200).json(userResponse);
+      email: user.email,
+      token
+    });
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ error: error.message || 'Internal server error during login.' });

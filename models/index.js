@@ -8,6 +8,6 @@ db.url = dbConfig.url;
 
 db.recipe = require('./recipes.js');
 db.author = require('./authors.js');
-db.user = require('./users.js')
+db.user = require('./users.js');
 
 module.exports = db;

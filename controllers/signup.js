@@ -1,6 +1,12 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const validator = require('validator');
 const { user: UserModel } = require('../models');
+
+// Create JSON Web Token
+function createToken(_id) {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
+}
 
 // Signup handler
 async function signupUser(req, res) {
@@ -36,12 +42,18 @@ async function signupUser(req, res) {
     const newUser = new UserModel({ email, password: hashedPassword });
     const savedUser = await newUser.save();
 
-    const userResponse = {
+    // const userResponse = {
+    //   _id: savedUser._id,
+    //   email: savedUser.email,
+    //   createdAt: savedUser.createdAt
+    // };
+    // res.status(201).json(userResponse);
+    const token = createToken(savedUser._id);
+    res.status(201).json({
       _id: savedUser._id,
       email: savedUser.email,
-      createdAt: savedUser.createdAt
-    };
-    res.status(201).json(userResponse);
+      token
+    });
   } catch (error) {
     console.error('Error during signup:', error);
     res.status(500).json({ error: error.message || 'Internal server error during signup.' });

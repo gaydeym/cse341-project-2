@@ -5,17 +5,13 @@
     "version": "1.0.0",
     "description": ""
   },
-  "host": "cse341-project-2-w7d5.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/recipes/": {
       "get": {
-        "tags": [
-          "Recipes"
-        ],
+        "tags": ["Recipes"],
         "description": "",
         "responses": {
           "200": {
@@ -27,9 +23,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Recipes"
-        ],
+        "tags": ["Recipes"],
         "description": "Add a new recipe",
         "parameters": [
           {
@@ -75,11 +69,7 @@
                 },
                 "ingredients": {
                   "type": "array",
-                  "example": [
-                    "400 g dulce de leche",
-                    "350 ml whole milk",
-                    "200 ml heavy cream"
-                  ],
+                  "example": ["400 g dulce de leche", "350 ml whole milk", "200 ml heavy cream"],
                   "items": {
                     "type": "string"
                   }
@@ -140,10 +130,7 @@
                   }
                 }
               },
-              "required": [
-                "imgUrl",
-                "name"
-              ]
+              "required": ["imgUrl", "name"]
             }
           }
         ],
@@ -162,9 +149,7 @@
     },
     "/recipes/{id}": {
       "get": {
-        "tags": [
-          "Recipes"
-        ],
+        "tags": ["Recipes"],
         "description": "",
         "parameters": [
           {
@@ -190,9 +175,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Recipes"
-        ],
+        "tags": ["Recipes"],
         "description": "",
         "parameters": [
           {
@@ -230,9 +213,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Recipes"
-        ],
+        "tags": ["Recipes"],
         "description": "",
         "parameters": [
           {
@@ -260,9 +241,7 @@
     },
     "/authors/": {
       "get": {
-        "tags": [
-          "Authors"
-        ],
+        "tags": ["Authors"],
         "description": "",
         "responses": {
           "200": {
@@ -272,13 +251,68 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "post": {
+        "tags": ["Authors"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/authors/{_id}": {
+      "delete": {
+        "tags": ["Authors"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/signup/": {
       "post": {
-        "tags": [
-          "Management System"
-        ],
+        "tags": ["Management System"],
         "description": "",
         "parameters": [
           {
@@ -315,9 +349,7 @@
     },
     "/login/": {
       "post": {
-        "tags": [
-          "Management System"
-        ],
+        "tags": ["Management System"],
         "description": "",
         "parameters": [
           {
